@@ -1,7 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var shortid = require('short-id');
+var increment = require('mongoose-auto-increment');
 if (mongoose.connection.readyState === 0) {
-  mongoose.connect(require('./connection-string'));
+  var connect = mongoose.connect(require('./connection-string'));
+  increment.initialize(connect);
 }
 
 
@@ -43,7 +46,7 @@ var newSchema = new Schema({
   'gender': {
     type: String,
     required: [true, 'This field is required'],
-    enum: ['Laki laki','Perempuan']
+    enum: ['Laki-laki','Perempuan']
   },
   'type': {
     type: String,
@@ -52,7 +55,7 @@ var newSchema = new Schema({
   },
   'status_pembayaran': { type: Boolean },
   'status_masuk': { type: Boolean },
-  'uuid': { type: String },
+  'uuid': { type: String, default: shortid.generate },
   'no_kursi': { type: Number },
   'createdAt': { type: Date, default: Date.now },
   'updatedAt': { type: Date, default: Date.now }
@@ -60,6 +63,7 @@ var newSchema = new Schema({
 
 newSchema.pre('save', function(next){
   this.updatedAt = Date.now();
+  
   next();
 });
 
@@ -72,5 +76,6 @@ newSchema.pre('findOneAndUpdate', function() {
 });
 
 
+newSchema.plugin(increment.plugin, {model: 'Peserta', field: 'counter'});
 
 module.exports = mongoose.model('Peserta', newSchema);

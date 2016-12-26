@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var cache = require('memory-cache');
 
 
 var routes = require('./routes/index');
@@ -14,6 +15,7 @@ var peserta = require('./routes/peserta');
 
 var app = express();
 
+cache.put('id',1);
 app.use(cors({
   origin: 'http://localhost:8000',
   optionSuccessStatus: 200
