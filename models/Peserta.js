@@ -63,7 +63,8 @@ var newSchema = new Schema({
 
 newSchema.pre('save', function(next){
   this.updatedAt = Date.now();
-  
+  this.status_masuk = false;
+  this.status_pembayaran = false;
   next();
 });
 

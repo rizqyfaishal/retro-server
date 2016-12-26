@@ -5,10 +5,16 @@ var pdf = require('html-pdf');
 var qrcode = require('qrcode-js');
 var Peserta = require('../models/Peserta');
 /* GET home page. */
+
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
+router.post('/login',function (req,res) {
+
+}); 
 
 
 
