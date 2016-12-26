@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 
 app.use(cors({
-    origin: 'http://localhost:800',
+    origin: 'http://localhost:8000',
     optionSuccessStatus: 200
 }));
 
