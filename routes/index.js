@@ -55,6 +55,7 @@ router.get('/pdf/:uuid',function (req,res) {
                         if(err) {
                             res.json(err);
                         } else {
+                            res.set('Content-Type','application/pdf');
                             res.write(buffer);
                             res.end('<title>Bukti Pendaftaran</title>');
                         }
