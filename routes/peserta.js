@@ -5,7 +5,11 @@ var express = require('express'),
 
 router.post('/register',function (req,res) {
     Peserta.create(req.body, function (err, peserta) {
-        res.json(peserta);
+        if(err){
+            res.json(err);
+        } else {
+            res.json(peserta);
+        }
     });
 });
 
