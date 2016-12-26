@@ -51,7 +51,7 @@ router.get('/pdf/:uuid',function (req,res) {
                 };
                 ejs.renderFile('./views/pdf/invoice.ejs',data,function (err, str) {
                     console.log(ress);
-                    pdf.create(str).toBuffer(function (err, buffer) {
+                    pdf.create(str, { format: 'A4'}).toBuffer(function (err, buffer) {
                         if(err) {
                             res.json(err);
                         } else {
