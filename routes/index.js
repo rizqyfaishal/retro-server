@@ -21,10 +21,7 @@ router.get('/pdf/:uuid',function (req,res) {
         }  else{
             if(ress){
                 var code = qrcode.toDataURL(uuid,7);
-                var pdfConfig = {
-                    height: '300px',
-                    width: '640px'
-                };
+
                 var data = {
                     qr: code,
                     uuid: uuid,
@@ -32,7 +29,7 @@ router.get('/pdf/:uuid',function (req,res) {
                 };
                 ejs.renderFile('./views/pdf/bukti.ejs',data,function (err, str) {
                     console.log(ress);
-                    pdf.create(str,pdfConfig).toBuffer(function (err, buffer) {
+                    pdf.create(str).toBuffer(function (err, buffer) {
                         if(err) {
                             res.json(err);
                         } else {
