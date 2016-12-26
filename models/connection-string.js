@@ -6,8 +6,8 @@
 
 var url = require('url');
 
-var dbUser = process.env.DB_USERNAME;
-var dbPassword = process.env.DB_PASSWORD;
+var dbUser = process.env.DB_USERNAME || 'retro';
+var dbPassword = process.env.DB_PASSWORD || 'password';
 
 var uri = 'mongodb://' + dbUser + ':' + dbPassword + '@ds133418.mlab.com:33418/retro2727';
 if (!uri) {

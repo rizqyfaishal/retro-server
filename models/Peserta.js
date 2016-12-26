@@ -6,7 +6,17 @@ if (mongoose.connection.readyState === 0) {
 
 
 var newSchema = new Schema({
-  'name' : {type: String},
+  
+  'name': { type: String },
+  'email': { type: String },
+  'phone': { type: String },
+  'school': { type: String },
+  'gender': { type: String },
+  'type': { type: String },
+  'status_pembayaran': { type: Boolean },
+  'status_masuk': { type: Boolean },
+  'uuid': { type: String },
+  'no_kursi': { type: Number },
   'createdAt': { type: Date, default: Date.now },
   'updatedAt': { type: Date, default: Date.now }
 });
@@ -26,4 +36,4 @@ newSchema.pre('findOneAndUpdate', function() {
 
 
 
-module.exports = mongoose.model('User', newSchema);
+module.exports = mongoose.model('Peserta', newSchema);
