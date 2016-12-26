@@ -20,14 +20,36 @@ router.get('/pdf/:uuid',function (req,res) {
             res.json(err);
         }  else{
             if(ress){
-                var code = qrcode.toDataURL(uuid,7);
+                var code = qrcode.toDataURL(uuid,4);
+                var pdfConfig = {
+                    height: '300px',
+                    width: '640px'
+                };
+                var no = ress.counter;
+                var nom = '';
+                if(no <10){
 
+                    no = 'RTR000' + no;
+                } else if(no <100){
+                    nom = 'Rp. 20.0' + no;
+                    no = 'RTR00' + no;
+
+                } else if(no <1000){
+                    nom = 'Rp. 20.' + no;
+
+                    no = 'RTR0' + no;
+                } else {
+                    nom = 'Rp. 20.00' + (no%1000);
+                    no = 'RTR' + no;
+                }
                 var data = {
                     qr: code,
                     uuid: uuid,
-                    data: ress
+                    data: ress,
+                    no: no,
+                    nom: nom
                 };
-                ejs.renderFile('./views/pdf/bukti.ejs',data,function (err, str) {
+                ejs.renderFile('./views/pdf/invoice.ejs',data,function (err, str) {
                     console.log(ress);
                     pdf.create(str).toBuffer(function (err, buffer) {
                         if(err) {
