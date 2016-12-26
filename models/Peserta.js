@@ -7,12 +7,49 @@ if (mongoose.connection.readyState === 0) {
 
 var newSchema = new Schema({
   
-  'name': { type: String },
-  'email': { type: String },
-  'phone': { type: String },
-  'school': { type: String },
-  'gender': { type: String },
-  'type': { type: String },
+  'name': {
+    type: String,
+    required: [true, 'This field is required'],
+    validate: {
+      validator: function (val) {
+          return /^[A-Za-z \']{3,}$/.test(val);
+    },
+      message: '{VALUE} is not valid name!'}
+  },
+  'email': {
+    type: String,
+    required: [true, 'This field is required']
+  },
+  'phone': {
+    type: String,
+    required: [true, 'This field is requied!'],
+    validate: {
+      validator: function (val) {
+        return /^(^\+62\s?|^0)(\d{3,4}-?){2}\d{3,4}$/.test(val);
+      },
+      message: '{VALUE} is not valid phone number'
+    }
+  },
+  'school': {
+    type: String,
+    required: [true, 'This field is required!'],
+    validate: {
+      validator: function (val) {
+        return /^[A-Za-z \d]{3,}$/.test(val);
+      },
+      message: '{VALUE} is not valid school name'
+    }
+  },
+  'gender': {
+    type: String,
+    required: [true, 'This field is required'],
+    enum: ['Laki laki','Perempuan']
+  },
+  'type': {
+    type: String,
+    required: [true, 'This field is required'],
+    enum: ['SAINTEK','SOSHUM']
+  },
   'status_pembayaran': { type: Boolean },
   'status_masuk': { type: Boolean },
   'uuid': { type: String },
