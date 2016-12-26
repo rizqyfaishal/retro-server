@@ -6,10 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 
-app.use(cors({
-    origin: 'http://localhost:8000',
-    optionSuccessStatus: 200
-}));
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -17,6 +13,11 @@ var admin = require('./routes/admin');
 var peserta = require('./routes/peserta');
 
 var app = express();
+
+app.use(cors({
+  origin: 'http://localhost:8000',
+  optionSuccessStatus: 200
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
