@@ -53,6 +53,17 @@ var newSchema = new Schema({
     required: [true, 'This field is required'],
     enum: ['SAINTEK','SOSHUM']
   },
+  'payment' : {
+      name: {
+        type: String
+      } ,
+      nominal: {
+        type: String
+      },
+      reference: {
+        type: String
+      }
+  },
   'status_pembayaran': { type: Boolean },
   'status_masuk': { type: Boolean },
   'uuid': { type: String, default: shortid.generate },
