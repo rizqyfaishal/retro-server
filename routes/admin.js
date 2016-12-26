@@ -8,12 +8,14 @@ router.post('/login',auth.authenticate('local',{session:false}),function (req, r
     res.json(req.user);
 });
 
-router.get('/dashboard',auth.authenticate('jwt',{ session: false}),function (req, res) {
-
+router.get('/getData',auth.authenticate('jwt',{ session: false}),function (req, res) {
+    Peserta.find({},function (err, result){
+        if(err) {
+            res.json(err);
+        } else {
+            res.json(result);
+        }
+    });
 });
-
-// router.post('/test',auth.authenticate('jwt',{session: false}),function (req,res) {
-//     res.json(req.user);
-// });
 
 module.exports = router;
