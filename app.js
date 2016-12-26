@@ -4,6 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cors = require('cors');
+
+app.use(cors({
+    origin: 'http://localhost:800',
+    optionSuccessStatus: 200
+}));
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
