@@ -30,7 +30,7 @@ router.get('/pdf/:uuid',function (req,res) {
                     uuid: uuid,
                     data: ress
                 };
-                ejs.renderFile('./views/pdf/invoice.ejs',data,function (err, str) {
+                ejs.renderFile('./views/pdf/bukti.ejs',data,function (err, str) {
                     console.log(ress);
                     pdf.create(str,pdfConfig).toBuffer(function (err, buffer) {
                         if(err) {

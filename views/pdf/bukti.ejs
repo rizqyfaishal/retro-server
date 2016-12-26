@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+
+<head>
+
+    <meta charset='UTF-8'>
+
+    <title>Test</title>
+
+    <style>
+        body {
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+        }
+
+        footer {
+            border-top: 1px solid #888;
+            margin-top: 1em;
+        }
+        .timestamp,.footer-content {
+            margin-top: -3em;
+            font-size: 85%;
+            text-align: right;
+            color: #888;
+        }
+
+        .footer-content {
+            margin-top: 1em;
+        }
+
+
+
+        .clear-both {
+            margin-top: 1em;
+            clear: both;
+        }
+
+        .kop {
+            position: absolute;
+            top: 0;
+            left: 8em;
+        }
+
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .login {
+            width: 50%;
+            text-align: center;
+        }
+
+        .bukan-peserta {
+            position: absolute;
+            top: 0;
+            right: 1.5em;
+            color: red;
+        }
+
+        .bukan-peserta p {
+            width: 20%;
+            padding: 0.3em;
+            text-align: center;
+            border: 1px solid red;
+        }
+
+        .kop h1 {
+            font-size: 170%;
+            margin: 0.2em 0 0.2em 0;
+        }
+
+        .langkah-3 h2, .langkah-3 p {
+            margin: 0.2em 0 0.2em 0;
+        }
+
+
+        .kop p {
+            margin: 0.2em 0 0.2em 0;
+        }
+
+        .line {
+            width: 100%;
+            position: absolute;
+            border-top: 1px solid #000;
+        }
+
+        .bigger {
+            color: red;
+            font-size: 170%;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+        .data {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        .des {
+            display: inline-block;
+            padding-right: 5em;
+            width: 120px;
+        }
+    </style>
+
+</head>
+<body>
+<div class='logo'>
+    <img width='100' height='100' src='adiguna.png' alt='Adiguna'>
+</div>
+<div class='kop'>
+
+    <h1>DATA REGISTRASI PESERTA</h1>
+
+    <p>Presentasi dan Tryout (RETRO) 2016</p>
+
+    <p>Adiguna UI paguyuban Surakarta</p>
+
+</div>
+
+<hr style='top: 6.5em' class='line'>
+
+<div class='absolute' style='top: 6.5em'>
+
+    <h1 style='font-weight: 300'>Nomor Registrasi : <strong class='data'>$reg</strong></h1>
+
+</div>
+
+<div style='top: 10em' class='absolute'>
+
+    <p class='data'><span class='des'>Nama Peserta</span><span class='result'>: $name</span></p>
+
+    <p class='data'><span class='des'>Jenis Kelamin</span><span class='result'>: $gender</span></p>
+
+    <p class='data'><span class='des'>Asal Sekolah</span><span class='result'>: $school</span></p>
+
+    <p class='data'><span class='des'>Telepon</span><span class='result'></span>: $phone</p>
+
+    <p class='data'><span class='des'>Email</span><span class='result'></span>: $email</p>
+
+    <p class='data'><span class='des'>Bidang Studi</span><span class='result'>: $tipe</span></p>
+
+    <p class='data'><span class='des'>Harga Tiket</span><span class='result'>:  Rp.20.000</span></p>
+
+    <p class='data'><span class='des'>Kode Pembayaran</span><span class='result'>: $id</span></p>
+
+    <p class='data'><span class='des'>Total Pembayaran</span><span class='result'>: $hargaTiket</span></p>
+
+</div>
+
+<hr class='line absolute' style='top: 26em'>
+
+<h1 class='absolute' style='top: 13em'>Petunjuk Pembayaran</h1>
+
+
+<div class='pembayaran absolute' style='top: 30em'>
+
+
+    <ul>
+
+        <li>
+
+            <strong>PENTING</strong>, lakukan pembayaran TEPAT sebesar <strong>$hargaTiket</strong>. 
+
+            Perbedaan nilai transfer akan menghambat proses verifikasi.
+
+        </li>
+
+        <li>
+
+            Silahkan transfer ke rekening berikut :
+
+            <p><span class='des'>Bank</span><span class='result'> : <strong>BNI (Bank Negara Indonesia)</strong></span>
+            </p>
+
+            <p><span class='des'>No Rekening</span><span class='result'> : <strong>0381997724</strong></span></p>
+
+            <p><span class='des'>Atas Nama</span><span class='result'> : <strong>Nanda Kesuma Devi</strong></span></p>
+
+            <p></p>
+
+        </li>
+
+        <li> Setelah melakukan pembayaran, segera lakukan konfirmasi pembayaran dengan cara :
+
+            <p>SMS ke nomor <strong>087812719200</strong> dengan format :
+                RETRO#No.Registrasi#NamaRekening#JumlahTransfer. Contoh : RETRO#RTR001#Ismail bin Mail#20001</p>
+
+            <p>ATAU</p>
+
+            <p>Melalui email <a href='mailto:adigunaretro@gmail.com'>adigunaretro@gmail.com</a> dengan subject
+                [Konfirmasi Pembayaran] dan isi email sama dengan
+
+                format SMS di atas. RETRO#No.Registrasi#NamaRekening#JumlahTransfer.</p>
+
+        </li>
+
+        <li>
+
+            Anda tidak perlu mengupload bukti pembayaran tapi wajib menyimpannya.
+
+        </li>
+
+        <li>
+
+            Anda <strong>WAJIB</strong> mengingat No.Registrasi dan sangat disarankan untuk mencetak kartu ini dan
+            dibawa saat registrasi ulang pada hari-H untuk ditukarkan dengan tiket peserta
+
+        </li>
+
+    </ul>
+
+
+</div>
+
+
+<p class='absolute' style='top: 58em'><strong>Info lebih lanjut hubungi :</strong>
+
+</p>
+
+<p class='absolute' style='top: 59em;'>Muhammad 085701050975&nbsp;|&nbsp;Kania 085727782299&nbsp;|&nbsp;Ask.fm :
+    @Retro16&nbsp;|&nbsp;www.retroadiguna.com</p>
+
+</body>
+</html>
