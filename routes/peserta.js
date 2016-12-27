@@ -24,8 +24,7 @@ router.post('/confirm',function (req,res) {
         if(err){
             res.json(err);
         } else {
-            console.log(result);
-            if(result){
+            if(result.nModified != 0){
                 res.json({
                     status: 'ok',
                     message: 'success'
