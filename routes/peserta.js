@@ -18,7 +18,7 @@ router.post('/confirm',function (req,res) {
     var data = {
         name: req.body.name,
         nominal: req.body.nominal,
-        references: req.body.references
+        reference: req.body.reference
     };
     Peserta.update({uuid: uuid},{$set: { payment: data }}, function (err, result) {
         if(err){
