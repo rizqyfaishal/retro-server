@@ -20,7 +20,7 @@ router.post('/confirm',function (req,res) {
         nominal: req.body.nominal,
         reference: req.body.reference
     };
-    Peserta.update({uuid: uuid, $not: {$exists: { payment: true }}},{$set: { payment: data }}, function (err, result) {
+    Peserta.update({uuid: uuid, $exists: { payment: false }},{$set: { payment: data }}, function (err, result) {
         if(err){
             res.json(err);
         } else {
