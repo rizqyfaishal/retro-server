@@ -15,7 +15,7 @@ var peserta = require('./routes/peserta');
 var app = express();
 
 app.use(cors({
-  origin: 'http://localhost:8000',
+  origin: 'http://retroadiguna.herokuapp.com',
   optionSuccessStatus: 200
 }));
 
