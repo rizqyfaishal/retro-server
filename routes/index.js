@@ -34,7 +34,7 @@ router.get('/pdf/:uuid',function (req,res) {
                 var no = ress.counter;
                 var nom = '';
                 if(no <10){
-
+                    nom = 'Rp. 20.00' + no;
                     no = 'RTR000' + no;
                 } else if(no <100){
                     nom = 'Rp. 20.0' + no;
