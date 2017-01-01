@@ -56,4 +56,20 @@ router.get('/check/:uuid', function (req, res) {
    })
 });
 
+router.get('/payment/:uuid',function (req, res) {
+    Peserta.findOne({uuid: req.params.uuid},{ payment: true },function (err, result) {
+        if(err){
+            res.json(err);
+        } else {
+            if(result){
+                res.json(result);
+            } else {
+                res.json({
+                    status: 'ok',
+                    message: 'not found'
+                })
+            }
+        }
+    });
+});
 module.exports = router;
