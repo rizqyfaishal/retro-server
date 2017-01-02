@@ -57,7 +57,7 @@ router.get('/check/:uuid', function (req, res) {
    })
 });
 
-router.get('/payment/:uuid',auth.authenticate('local',{session:false}),function (req, res) {
+router.get('/payment/:uuid',auth.authenticate('jwt',{session:false}),function (req, res) {
     Peserta.findOne({uuid: req.params.uuid},function (err, result) {
         if(err){
             res.json(err);
@@ -74,7 +74,7 @@ router.get('/payment/:uuid',auth.authenticate('local',{session:false}),function 
     });
 });
 
-router.post('/payment/:uuid/toggle',auth.authenticate('local',{session:false}),function (req, res) {
+router.post('/payment/:uuid/toggle',auth.authenticate('jwt',{session:false}),function (req, res) {
     var status = req.body.status;
    Peserta.update({uuid: req.params.uuid},{ status_pembayaran: !status },function (err, result) {
        if(err){
