@@ -33,9 +33,17 @@ var newSchema = new Schema({
       message: '{VALUE} is not valid phone number'
     }
   },
+  'child_name': {
+    type: String,
+    validate: {
+      validator: function (val) {
+        return /^[A-Za-z \']{3,}$/.test(val);
+      },
+      message: '{VALUE} is not valid school name'
+    }
+  },
   'school': {
     type: String,
-    required: [true, 'This field is required!'],
     validate: {
       validator: function (val) {
         return /^[A-Za-z \d]{3,}$/.test(val);
@@ -43,15 +51,10 @@ var newSchema = new Schema({
       message: '{VALUE} is not valid school name'
     }
   },
-  'gender': {
+  'status': {
     type: String,
     required: [true, 'This field is required'],
-    enum: ['Laki-laki','Perempuan']
-  },
-  'type': {
-    type: String,
-    required: [true, 'This field is required'],
-    enum: ['SAINTEK','SOSHUM']
+    enum: ['Siswa','Orang Tua Siswa']
   },
   'payment' : {
       name: {

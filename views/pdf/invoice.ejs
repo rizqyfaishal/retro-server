@@ -89,7 +89,10 @@
         </div>
         <article>
             <p><span class="attr">Nama</span><span class="detail">: <%= data.name %></span></p>
-            <p><span class="attr">Jenis Kelamin</span><span class="detail">: <%= data.gender %></span></p>
+            <p><span class="attr">Status</span><span class="detail">: <%= data.status %></span></p>
+            <% if(data.status == 'Orang Tua Siswa') {%>
+                <p><span class="attr">Nama Siswa</span><span class="detail">: <%= data.child_name %></span></p>
+            <% } %>
             <p><span class="attr">Email</span><span class="detail">: <%= data.email %></span></p>
             <p><span class="attr">Nomor Telepon</span><span class="detail">: <%= data.phone %></span></p>
             <p><span class="attr">SMA</span><span class="detail">: <%= data.school %></span></p>

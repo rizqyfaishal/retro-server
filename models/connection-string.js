@@ -24,6 +24,5 @@ if (uriObj.protocol !== 'mongodb:') {
 if (!uriObj.host || !uriObj.path) {
   throw new Error('Improperly formatted URI')
 }
-
 module.exports = uri;
 
